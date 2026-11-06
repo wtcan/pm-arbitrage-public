@@ -1,0 +1,22 @@
+# ------------------------------------------------------------------
+# Files and folders that Git should NOT save in the public repository.
+# ------------------------------------------------------------------
+
+# All data: raw API answers, clean tables, review files and live snapshots.
+# None of it is published here; download it with the scripts (see README.md).
+data/
+
+# Log files.
+logs/
+
+# Clutter that Python, pytest and Jupyter create automatically.
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Mac system files.
+.DS_Store
+
+# Secrets. This project never uses keys, but this guards against accidents.
+.env
