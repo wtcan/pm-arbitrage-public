@@ -167,8 +167,8 @@ collected until December 2026.
 
 ## Getting the data
 
-**This repository contains no data.** Nothing from `data/` is published
-(`.gitignore` excludes the folder). The scripts download everything from the
+**This repository contains almost no data.** The only file from `data/` that is
+published is the review file described below (`.gitignore` excludes the rest). The scripts download everything from the
 venues' public APIs; no account or API key is needed. `python run_all.py`
 (below) runs all download steps in order, or run them by hand:
 
@@ -184,14 +184,23 @@ how fast it answers. The downloads keep the markets of the 24 months before
 the day you run them, so your sample will differ somewhat from the one
 behind the numbers above (downloaded on 4 November 2026).
 
-**The review step is not downloadable.** The first pass of the two-pass
-verification (`data/processed/independent_review.csv` in the original
-project) is a reviewer's judgement on each candidate pair and is not
-included. After the downloads and `src/match.py`, review the candidates
-yourself: `python src/make_review_sheet.py` writes an Excel sheet; fill in
-`same` / `different` / `unsure`, save it, and run
-`python src/read_review_sheet.py`. Then continue with
-`python run_all.py --from pairs`. `docs/matching.md` explains what to check.
+**The review file is included.** The first pass of the two-pass
+verification is a reviewer's judgement on each candidate pair, which no
+script can download. It is published as
+`data/processed/independent_review.csv`: one row per candidate pair of
+4 November 2026 (201 rows: `pair_id`, `verdict`, `reason`), so anyone can read
+every verdict and its reason, and `src/apply_independent_review.py` turns it
+into the 155 verified pairs.
+
+The file covers exactly the 201 candidates of 4 November 2026, and
+`apply_independent_review.py` stops if your candidates differ. A later
+download sees newer markets (and drops the oldest), so its candidates will
+usually differ. Then review the candidates yourself:
+`python src/make_review_sheet.py` writes an Excel sheet; fill in `same` /
+`different` / `unsure` (the published reasons show how each kind of pair was
+judged), save it, and run `python src/read_review_sheet.py`. Then continue
+with `python run_all.py --from pairs`. `docs/matching.md` explains what to
+check.
 
 ## How to reproduce everything
 
@@ -206,8 +215,9 @@ pytest
 ```
 
 Everything from scratch, downloads included (a few hours, mostly Kalshi's
-rate limits). Without the review file, the run stops at the `verify` step and
-explains how to review the candidates (see "Getting the data"):
+rate limits). If your candidates differ from the 201 of 4 November 2026, the
+run stops at the `verify` step and explains how to review them (see "Getting
+the data"):
 
 ```bash
 python run_all.py
@@ -230,7 +240,7 @@ python src/check_connection.py        # can we reach both venues' APIs?
 python src/download_kalshi.py         # Kalshi markets, order books, hourly candles
 python src/download_polymarket.py     # Polymarket markets, order books, price history
 python src/match.py                   # candidate pairs -> match_candidates.csv
-python src/apply_independent_review.py   # two-pass verification (needs the review file; see above)
+python src/apply_independent_review.py   # two-pass verification with the published review file
 python src/build_pairs.py             # verified pairs -> pairs.parquet
 python src/download_poly_trades.py    # Polymarket trades of the pairs -> hourly bars
 python src/arb.py                     # worked fee example (arb.py --download for fresh books)
@@ -253,12 +263,12 @@ python src/snapshot.py
 | `notebooks/` | `01_historical_gaps.ipynb`: the whole analysis |
 | `figures/` | the three figures (PNG and PDF) |
 | `docs/` | [paper](docs/paper.md), [results](docs/results.md), [matching](docs/matching.md), [fees and arbitrage](docs/arbitrage.md), [Polymarket trades](docs/poly_trades.md), [snapshots](docs/snapshot.md), [code walkthrough](docs/code_walkthrough.md) |
-| `data/` | **not in this repository**: created by the scripts (`data/raw/` cache, `data/processed/` clean Parquet tables) |
+| `data/` | created by the scripts (`data/raw/` cache, `data/processed/` clean Parquet tables); only `data/processed/independent_review.csv` is in this repository |
 | `run_all.py` | rebuilds everything in order |
 
 ## Research only
 
-This is research code for an economics master's thesis. It only reads public
+This is an independent research project in economics. It only reads public
 market data; it never places orders, creates accounts or uses keys or
 wallets. Nothing here is investment advice.
 

@@ -1,7 +1,7 @@
 # requirements-lock.txt - every installed Python package, with its exact version
 #
 # A complete record of the software environment used on 2026-11-04
-# (Python 3.13.18), so the thesis results can be reproduced later.
+# (Python 3.13.18), so the results can be reproduced later.
 #
 #   requirements.txt      = the short list of packages this project asks for
 #                           (installed at the start of every session)

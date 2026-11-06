@@ -4,7 +4,13 @@
 
 # All data: raw API answers, clean tables, review files and live snapshots.
 # None of it is published here; download it with the scripts (see README.md).
-data/
+# The one exception is the first-pass review of the 201 match candidates, a
+# judgement that no script can download: it is needed to rebuild the 155 pairs.
+# (Git can only un-ignore a file if its folders are not ignored, hence 4 lines.)
+/data/*
+!/data/processed/
+/data/processed/*
+!/data/processed/independent_review.csv
 
 # Log files.
 logs/

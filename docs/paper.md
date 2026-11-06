@@ -1,6 +1,6 @@
 # Same event, two prices: cross-venue arbitrage between Kalshi and Polymarket
 
-*[Author name]* · Master's thesis project in economics · November 2026
+*Can Onur Özsoy* · Independent research project · November 2026
 
 **Abstract.** I match Fed-decision and CPI contracts on Kalshi and
 Polymarket by their economic content, verify the pairs in a two-pass review,

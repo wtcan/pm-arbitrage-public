@@ -1,6 +1,6 @@
 # Code walkthrough
 
-A guided tour of every file in `src/`, written for the thesis author (basic
+A guided tour of every file in `src/`, written for the project's author (basic
 Python, economics background). For each file it covers what the file does,
 its key functions, the design choices and the reasons for them, and one
 interview question with a model answer. At the end there is a one-page
@@ -1600,7 +1600,7 @@ paid and Polymarket's did not. A hedge meant to be riskless lost on both
 legs, and its mirror image paid twice. A second case is a duplicate
 Polymarket event for the September 2026 Fed meeting that closed four months
 early and resolved "no change", while the Fed hiked. The lesson for the
-thesis is that resolution risk is a real limit to arbitrage: part of an
+project is that resolution risk is a real limit to arbitrage: part of an
 observed price gap may be compensation for it.
 
 ### Q5. What data do you have, and what are its limitations?
