@@ -107,7 +107,9 @@ candle, carried forward; Polymarket's price is the latest trade of either
 token, converted into the price of "Kalshi's YES happens" and carried
 forward with its age. This gives 220,609 pair-hours. The **main sample** is
 the 162,937 pair-hours (153 pairs) in which Kalshi has both a bid and an ask
-and the Polymarket price is at most 24 hours old. As a cross-check,
+and the Polymarket price is at most 24 hours old; the other two verified
+pairs (one CPI MoM, one CPI YoY) never meet both conditions in the same
+hour. As a cross-check,
 Polymarket's own price series agrees with the trade-based prices with a
 correlation of 0.999 and a median difference of 0.45 cents.
 
@@ -258,7 +260,10 @@ venues continuously.
 ![Figure 3](../figures/half_life_distribution.png)
 
 *Figure 3. Half-lives of the gaps, AR(1) per pair, by topic; half-lives
-above 24 hours are collected in the last bar.*
+above 24 hours are collected in the last bar. The figure covers the 136
+pairs (72 Fed, 30 CPI MoM, 34 CPI YoY) with at least 100 pairs of
+neighbouring hours; the other 17 of the 153 main-sample pairs have too few
+hours for a reliable AR(1).*
 
 ### 6.3 Determinants
 

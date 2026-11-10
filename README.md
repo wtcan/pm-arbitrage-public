@@ -111,6 +111,8 @@ Full tables: [docs/results.md](docs/results.md). A short paper:
 | median half-life of a gap (hours) | 6.9 | 4.3 | 3.8 | 5.3 |
 | Granger: Kalshi leads / Polymarket leads | 27.9% / 13.1% | 10.7% / 14.3% | 15.2% / 6.1% | 20.5% / 11.5% |
 
+Two of the 155 verified pairs (one CPI MoM, one CPI YoY) never have an hour in which Kalshi shows both a bid and an ask while Polymarket's price is at most 24 hours old, so the main sample has 153 pairs.
+
 * **Profitable-looking hours are common but tiny.** The 26% share depends
   mostly on the assumed Polymarket spread: from 41% with no spread to 17%
   with a half spread of 1 cent. After Polymarket introduced fees on these
@@ -137,6 +139,8 @@ Full tables: [docs/results.md](docs/results.md). A short paper:
 ![Distribution of raw and fee-adjusted gaps](figures/gap_histogram.png)
 
 ![Half-lives of the gaps per topic](figures/half_life_distribution.png)
+
+*Half-lives are estimated only for the 136 pairs (72 Fed, 30 CPI MoM, 34 CPI YoY) with at least 100 pairs of neighbouring hours in the main sample; the other 17 of the 153 pairs have too few hours for a reliable AR(1).*
 
 ## Limitations
 

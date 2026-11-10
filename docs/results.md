@@ -42,7 +42,8 @@ times UTC; gaps in cents per contract (one contract pays $1).
 * **Polymarket:** the latest trade of either token in Kalshi YES terms (using
   the pair's side), carried forward with its age; prices older than 24 hours are
   left out (main sample: Kalshi mid and a Polymarket price at most 24 h old,
-  162,937 pair-hours, 153 pairs).
+  162,937 pair-hours, 153 pairs). The other two of the 155 verified pairs (one
+  CPI MoM, one CPI YoY) never have an hour with both.
 * **Raw gap** = Polymarket last trade − Kalshi mid.
 * **Executable-style gap** = the better of the two directions: 1 − Kalshi ask (or
   1 − bid for NO) − Polymarket last trade ± half spread, minus both taker fees
@@ -121,7 +122,7 @@ Rows: maximum age of the Polymarket price. Columns: the assumed half spread.
 
 ## 4. Persistence (AR(1) per pair)
 
-Pairs with at least 100 pairs of neighbouring hours. Pooled AR(1) with pair fixed effects: rho = 0.892 (s.e. 0.015, clustered by pair), half-life 6.1 hours.
+Pairs with at least 100 pairs of neighbouring hours: 136 of the 153 main-sample pairs (the other 17 have too few hours). Pooled AR(1) with pair fixed effects: rho = 0.892 (s.e. 0.015, clustered by pair), half-life 6.1 hours.
 
 | topic | pairs | median rho | rho p25 | rho p75 | median half-life (h) | half-life p25 (h) | half-life p75 (h) | share under 1 h | share over 24 h |
 |---|---|---|---|---|---|---|---|---|---|
@@ -220,7 +221,8 @@ Break-even: if every divergence lost the stake (on average $0.76), each normal t
 * `figures/gap_over_time_examples.png` (and `.pdf`): raw and fee-adjusted gap in the last 30 days of one
   pair per topic.
 * `figures/gap_histogram.png`: distribution of raw and fee-adjusted gaps.
-* `figures/half_life_distribution.png`: half-lives of the gaps, per topic.
+* `figures/half_life_distribution.png`: half-lives of the gaps, per topic (the 136
+  pairs with enough neighbouring hours, see part 4).
 
 
 ## Limitations
