@@ -1,0 +1,20 @@
+# Python packages used by this project.
+# Install them at the start of every session with:
+#     pip install -r requirements.txt
+#
+# Versions are pinned ("==") to the ones installed on 2026-11-04, so every
+# session installs exactly the same versions and results stay reproducible.
+# Change a version only on purpose, re-run the tests afterwards, and remake
+# requirements-lock.txt (the full list of every installed package).
+
+requests==2.34.2      # download data from the venues' public web APIs
+pandas==3.0.5         # tables (DataFrames) for cleaning and analysis
+pyarrow==26.0.1       # lets pandas read and write Parquet files
+openpyxl==3.1.5       # reads and writes Excel files (the match review sheet)
+numpy==2.5.3          # fast numerical arrays and math
+matplotlib==3.11.2    # charts and figures
+rapidfuzz==3.14.6     # fuzzy text matching (to pair the same market across venues)
+statsmodels==0.15.0   # econometrics: regressions, time-series tests
+scipy==1.18.1         # the math engine statsmodels uses for its calculations
+pytest==9.2.0         # runs the unit tests in tests/
+jupyter==1.1.1        # notebooks for exploration (notebooks/)
